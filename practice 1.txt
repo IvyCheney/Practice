@@ -1,0 +1,86 @@
+#!/usr/bin/env python
+#coding:utf-8
+a=19+2*4-8/2
+print (a)
+
+name=input('input your name:')
+age=input("Hoe old are you?:")
+print("your name is:,",name)
+print("you are "+age+" year old.")
+after_ten=int(age)+10
+print("you will be "+str(after_ten)+" years old after ten years.")
+
+lang="study python"
+a=lang[2:9]
+b=lang[1:]
+c=lang[0:10]
+print(a)
+print(b)
+print(c)
+
+lang="python"
+print("I love %(program)s"%{"program":lang})
+
+b='www.123.com'
+c=b.split(".")
+print(c)
+"*".join(c)
+
+a=['2',3,'abc']
+print(a)
+a[::-1]
+
+lst=['python','java','c++']
+len(lst)
+
+ la=[1, 2, 3]
+ lb=['qiwsir', 'python']
+ la.extend(lb)
+ print(la)
+ print(lb)
+ 
+ new = [1,2,3]
+ lst = ['Python','qiwsir']
+ print(id(lst))
+ lst.append(new)
+ print(id(lst))
+ print(lst)
+ 
+ la = [1,2,1,1,3]
+la.count(1)
+
+la=[1, 2, 3, 'a', 'b', 'c', 'qiwsir', 'python']
+la.index(3)
+
+all_users=['qiwsir', 'github', 'io']
+all_users.insert(0,"python") 
+print(all_users)
+
+lst = ["python","java","python","c"]
+lst.remove("python")
+print(lst)
+
+line = "Hello.I am qiwsir.Welcome you." 
+line.split(".",1)
+print(line)
+
+ city_code={'suzhou': '0512', 'beijing': '011', 'shanghai': '012', 'tangshan': '0315'}
+a=len(city_code)
+print(a)
+
+ x = {"name":"qiwsir", "lang":["Python", "java", "c"]}
+ print(id(x))
+ y = x.copy()
+ print(y)
+ print(id(y))
+ 
+ s1=set(['q', 'i', 's', 'r', 'w'])
+lst = list(s1)
+print(lst )
+
+a=set(['q', 'i', 's', 'r', 'w'])
+b=set(['a', 'q', 'i', 'l', 'o'])
+c=(a - b)
+d=(a.difference(b))
+print(c)
+print(d)

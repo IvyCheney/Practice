@@ -31,66 +31,98 @@ b = "python" if x<y else "qiwsir"
 print(a)
 print(b)
 语句1、
-raw = [1,2,3,4,5,6,7,8,9,0]
-print (raw)
-b = raw.pop(0)
-raw.append(b)
-print (raw)
+#!/usr/bin/env python
+#coding=utf-8
+
+get_test_list = [1,2,3,4,5,6,7,8,9,0]
+
+temporary_store = get_test_list.pop(0)
+
+get_test_list.append(temporary_store)
+
+print (get_test_list)
 语句2、
 #!/usr/bin/env Python
 # coding=utf-8
+
 from __future__ import division
 import random
-score = [random.randint(0,100) for i in range(40)]    #0 到 100 之间，随机得到 40 个整数，组成列表
-print (score)
-num = len(score)
-sum_score = sum(score)               #对列表中的整数求和
-ave_num = sum_score/num              #计算平均数
-less_ave = len([i for i in score if i<ave_num])    #将小于平均数的找出来，组成新的列表，并度量该列表的长度
-print ("the average score is:%.1f" % ave_num)
-print ("There are %d students less than average." % less_ave)
-sorted_score = sorted(score, reverse=True)    #对原列表排序
+
+Total_number = 40
+def create_scores(Total_number,max_score=100):
+    return[random.randint(0,max_score) for i in range(Total_number) ]#0 到 100 之间，随机得到 40 个整数，组成列表
+
+def filter_under_average(input_list):
+    num=len(input_list)
+    sum_up=sum(input_list)*1.0#对列表中的整数求和
+    average=sum_up/num   #计算平均数
+    return[x for x in input_list if x<average] #将小于平均数的找出来，组成新的列表
+
+score=create_scores(Total_number)
+temp=filter_under_average(score)
+ascending=True
+sorted_score = sorted(score, reverse=ascending)    #对原列表排序
 print (sorted_score)
 语句3、
 #!/usr/bin/env Python
 # coding=utf-8
+
 string = "I love  code."    #在 code 前面有两个空格，应该删除一个
-print(string)                #为了能够清楚看到每步的结果，把过程中的量打印出来
+print(string) #为了能够清楚看到每步的结果，把过程中的量打印出来
+
 str_lst = string.split(" ")    #以空格为分割，得到词汇的列表
 print(str_lst)
+
 words = [s for s in str_lst if s!=""]     #利用列表解析，将空格检出
 print(words)
 
 new_string = " ".join(words)    #以空格为连接符，将单词链接起来
 print(new_string)
 
+语句4、
 #!/usr/bin/env Python
 # coding=utf-8
 
+a, b = 0, 1
+
+for i in range(4):    #改变这里的数，就能得到相应项的结果
+    a, b = b, a+b
+
+print a
+
 函数1、
-from __future__ import division
-import math
+#!/usr/bin/env Python
+# coding=utf-8
+
+from math import sqrt
+
+a=input("enter a: ")
+b=input("enter b: ")
+c=input("enter c: ")
+a=int(a)
+b=int(b)
+c=int(c)
+
+delta = b*b-4*a*c
 
 def quadratic_equation(a,b,c):
-    delta = b*b - 4*a*c
     if delta<0:
-        return False
-    elif delta==0:
-        return -(b/(2*a))
+        return ValueError("get delta under zero,")
+    if delta==0:
+        x=-(b/(2*a))
+        print(x)
+        return x
     else:
         sqrt_delta = math.sqrt(delta)
         x1 = (-b + sqrt_delta)/(2*a)
         x2 = (-b - sqrt_delta)/(2*a)
+        print (x1,x2)
         return x1, x2
 
-if __name__ == "__main__":
-    print ("a quadratic equation: x^2 + 2x + 1 = 0")
-    coefficients = (1, 2, 1)
-    roots = quadratic_equation(*coefficients)
-    if roots:
-        print ("the result is:",roots)
-    else:
-        print ("this equation has no solution.")
+try:
+    quadratic_equation(a,b,c)
+except ValueError as ex:
+	print(ex)
 函数2、        
 #!/usr/bin/env Python
 # coding=utf-8
@@ -134,7 +166,7 @@ if __name__ == "__main__":
     xuezha = min_score(examine_scores)
     print ("Xuzha is: ",xuezha)             #学渣们
     函数3、
-    #!/usr/bin/env Python
+#!/usr/bin/env Python
 # coding=utf-8
 
 import math
